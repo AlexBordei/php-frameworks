@@ -38,7 +38,7 @@ if($user->is_logged_in() === true) {
 			<label for="pass">Password</label>
 			<input type="password" name="pass">
 			<br>
-			<?php echo "Lungimea obligatorie a parolei este de minim " . User::$prop_statica . " caractere!<br>"; ?>
+			<?php echo "Lungimea obligatorie a parolei este de minim " . User::PASS_LENGTH . " caractere!<br>"; ?>
 			<input type="submit" name="submit" value="Login">
 		</form>
 	</body>
