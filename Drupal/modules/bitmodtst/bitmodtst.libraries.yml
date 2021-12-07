@@ -1,0 +1,6 @@
+bitmodtst-css:
+    version: 1.x
+    header: true
+    css:
+        theme:
+            assets/css/bitmodtst.css: {}
