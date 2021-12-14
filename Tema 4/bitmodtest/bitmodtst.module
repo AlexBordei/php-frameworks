@@ -1,0 +1,11 @@
+<?php
+
+function bitmodtst_theme() {
+    
+    $theme['bithomepage'] = array(
+        'variables' => array('params' => array()), 'template' => 'homepage',
+    );
+
+    return $theme;
+    
+}

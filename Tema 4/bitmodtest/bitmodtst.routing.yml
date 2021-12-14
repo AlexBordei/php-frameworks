@@ -1,0 +1,7 @@
+bitmodtst-homepage:
+    path: '/bitmodtst-homepage'
+    defaults:
+        _controller: 'Drupal\bitmodtst\Controller\BitModTstHomePageController::display'
+        _title: 'Bit Mod Test'
+    requirements:
+        _custom_access: 'Drupal\bitmodtst\Controller\BitModTstHomePageController::access'
