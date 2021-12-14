@@ -1,0 +1,34 @@
+
+{% for result in params.db_response %}
+<ul>
+  <li>Nume: {{ result.nume }}</li>
+  <li>Salariu: {{ result.salariu }}</li>
+
+
+
+</ul>
+{% endfor %}
+
+
+{% if params.calculator_results %}
+  <h3>
+    {% for value in params.calculator_results %}
+      {{ value }}<br>
+    {% endfor %}
+  </h3>
+{% endif %}
+
+{% if not params.calculator_results %}
+  <form action="https://drupal.local/bitmodtst-homepage">
+    <label for="x">X:
+      <input type="number" name="x">
+    </label>
+    <label for="y">Y:
+      <input type="number" name="y">
+    </label>
+    <input type="submit" value="Calculeaza">
+  </form>
+{% else %}
+  <a href="https://drupal.local/bitmodtst-homepage"><button>Reseteaza</button></a>
+{% endif %}
+

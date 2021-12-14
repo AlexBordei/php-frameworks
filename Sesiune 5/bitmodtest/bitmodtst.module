@@ -1,0 +1,38 @@
+<?php
+
+function bitmodtst_theme() {
+
+    $theme['bithomepage'] = array(
+        'variables' => array('params' => array()), 'template' => 'homepage',
+    );
+
+    return $theme;
+
+}
+
+// Cand treci pe langa banca ing, depune banii astia
+//{nume_modul}_{nume_hook} -> cand treci pe langa o banca
+//{nume_modul}_{identificator}_{nume_hook} -> cand treci pe langa banca ing (in are rol de identificator)
+
+
+function bitmodtst_user_login(\Drupal\Core\Session\AccountInterface $account) {
+  $name = $account->getDisplayName();
+  $message = 'Salut ' . $name . '! Bine ati venit!';
+
+  $messenger = \Drupal::messenger();
+  $messenger->addMessage($message, $messenger::TYPE_WARNING);
+
+}
+
+function bitmodtst_cron() {
+  $nr_random = rand(100, 10000);
+
+  file_put_contents('number.txt', $nr_random . "\n", FILE_APPEND);
+}
+
+function bitmodtst_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['account']['name']['#title'] = 'Nume utilizator';
+  $form['user_picture']['widget']["0"]['#title'] = 'Imagine';
+
+  $form['account']['name']['#description'] = 'Descriere';
+}

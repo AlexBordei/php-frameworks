@@ -1,0 +1,58 @@
+<?php
+
+function bitmodtst_schema() {
+
+	$schema['angajati'] = array(
+
+		'description' => 'Descriere generala tabel angajati',
+
+		'fields' => array(
+
+			'id' => array(
+				'type' => 'serial',
+				'not null' => true,
+			),
+
+			'nume' => array(
+				'type' => 'varchar',
+				'length' => 100,
+				'not null' => true,
+			),
+
+			'prenume' => array(
+				'type' => 'varchar',
+				'length' => 100,
+				'not null' => true,
+			),
+
+			'salariu' => array(
+				'type' => 'int',
+				'unsigned' => true,
+				'not null' => true,
+				'default' => 0
+			),
+
+		),
+		'primary key' => array(
+			'id'
+		),
+
+	);
+
+	return $schema;
+}
+
+
+function bitmodtst_install() {
+  $db_conn = \Drupal::Database();
+
+  $insert_data_obj = $db_conn->insert('angajati')->fields(['nume', 'prenume', 'salariu']);
+
+  $insert_data_obj->values([
+    'nume' => 'Ionescu',
+    'prenume' => 'Mihai',
+    'salariu' => 100
+  ]);
+
+  $insert_data_obj->execute();
+}
